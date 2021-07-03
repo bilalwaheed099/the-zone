@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <ul class="navlist hidden">
+                <li class="nav-clock active">Clock</li>
+                <li class="nav-stopwatch">Stopwatch</li>
+                <li class="nav-timer">Timer</li>
+            </ul>
+            <img class="burger" src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png"/>
+
+        </nav>
+        <main>
+            <section class="clock current-time">
+                <div class="labels">
+                    <p class="labels_hour">Hour</p>
+                    <p class="labels_minutes">Minutes</p>
+                    <p class="labels_seconds">Seconds</p>
+                </div>
+                <div class="values">
+                    <p class="values_hours"></p>
+                    <p class="values_minutes"></p>
+                    <p class="values_seconds"></p>
+                </div>
+            </section>
+
+            <section class="clock stopwatch hidden">
+                <div class="labels">
+                <p class="sw_label-hours labels-hour">Hour</p>
+                <p class="sw_labels-minutes labels-minutes">Minutes</p>
+                <p class="sw_labels-seconds labels-seconds">Seconds</p>
+            </div>
+            <div class="values">
+                <p class="sw_values-hours values-hours">00</p>
+                <p class="sw_values-minutes values-minutes">00</p>
+                <p class="sw_values-seconds values-seconds">00</p>
+            </div>
+            <div class="buttons-container">
+                <button class="swbtn sw-start">Start</button>
+                <button class="swbtn sw-pause">Pause</button>
+                <button class="swbtn sw-stop">Stop</button>
+            </div>
+            </section>
+            <section class="clock timer hidden">
+                <div class="inputs-container">
+                    <input type="number" name="hours" class="input-hours" min="0" placeholder="00">
+                    <input type="number" name="minutes" class="input-minutes" min="0" max="59" placeholder="00">
+                    <input type="number" name="seconds" class="input-seconds" min="0" max="59" placeholder="00">
+                </div>
+                <div class="values hidden">
+                    <p class="t_values-hours values-hours">00</p>
+                    <p class="t_values-minutes values-minutes">00</p>
+                    <p class="t_values-seconds values-seconds">00</p>
+                </div>
+                <div class="buttons-container">
+                    <button class="tbtn t-start">Start</button>
+                    <button class="tbtn t-stop">Stop</button>
+                </div>
+
+            </section>
+        </main>
+    </header>
+    <script src="./script.js"></script>
+</body>
+</html>
