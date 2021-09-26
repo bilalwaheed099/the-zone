@@ -2,42 +2,53 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+}
+body{
+    background: linear-gradient(to bottom right, #C7838D, #614173, #2d1e55);
 }
 
-.nav{
+.moon{
+    height: 15vh;
+    position: absolute;
+    left: 5%;
+    top: 3%;
+}
+
+/* .nav{
     width: 90%;
     height: 10vh;
     margin: auto;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
+} */
 
 .navlist{
-    width: 30%;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10%;
     list-style: none;
-    position: relative;
-    top: 10vh;
-    right:4%;
     color: white;
-    background-color: grey;
-}
-
-.active{
-    background-color: rgb(58, 58, 58);
 }
 
 .navlist li{
     width: 100%;
     padding: 1rem;
     font-size: 18px;
-    text-align: center;
+    text-align: end;
 }
 .navlist li:hover{
-    background-color: rgb(58, 58, 58);
     cursor: pointer;
+    font-size: 24px;
 }
 
+.burger{
+    height: 20px;
+}
 
 .burger:hover{
     cursor: pointer;
@@ -49,7 +60,7 @@ main{
 
 .clock{
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -65,12 +76,43 @@ main{
     font-size: 2rem;
     font-weight: 500;
 }
+
+.values{
+    width: 30%;
+    font-size: 5rem;
+}
+
 p{
     text-align: center;
 }
 
-
 /*Stopwatch*/
+.sw-values{
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.6fr;
+    height: 8vh;
+    font-size: 2rem;
+    font-weight: 500;
+    width: 30%;
+    font-size: 5rem;
+}
+
+.stopwatch, .timer{
+    justify-content: center;
+}
+
+.sw-values{
+    transform: translateY(-42%);
+}
+
+.sw_values-milseconds{
+    font-size: 3rem;
+    text-align: end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
 
 .buttons-container{
     width: 400px;
@@ -78,32 +120,47 @@ p{
     display: flex;
     justify-content: space-evenly;
     margin: 0 auto;
+    margin-top: 60px;
 }
-.swbtn{
-    padding: 0.5rem;
-    width: 30%;
-    font-size: 18px;
+.swbtn, .tbtn{
+    width: 18%;
+    font-size: 32px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+.swbtn:active, .tbtn:active{
+    font-size: 24px;
 }
 /* Timer */
 
 input{
-    height: 80px;
+    height: 76px;
     width: 120px;
-    margin: 20px;
-    font-size: 22px;
+    margin: 0 18px;
+    font-size: 5rem;
+    padding: 10px;
     text-align: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
 }
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button{
     -webkit-appearance: none;
     margin: 0;
 }
-.tbtn{
-    padding: 0.5rem;
-    width: 30%;
-    font-size: 18px;
-}
 
 .hidden{
     display: none;
+}
+
+.active{
+    
+}
+::-webkit-input-placeholder{
+    color: white;
 }

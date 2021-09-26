@@ -1,13 +1,15 @@
 window.onload = executeClockModule;
 
-const burger = document.querySelector('.burger');
+// const burger = document.querySelector('.burger');
+// burger.addEventListener('click', ()=> {
+//     navList.classList.toggle("hidden");
+// })
 const navList = document.querySelector('.navlist');
-burger.addEventListener('click', ()=> {
-    navList.classList.toggle("hidden");
-})
+const navClock = document.querySelector('.nav-clock');
+const navStopwatch = document.querySelector('.nav-stopwatch');
+const navTimer = document.querySelector('.nav-timer');
 //adding listeners for nav items
 navList.addEventListener('click', e=>{
-    navList.classList.toggle("hidden");
     const targetClass = e.target.className.split(' ')[0];
     switch(targetClass){
         case "nav-clock":
@@ -41,9 +43,9 @@ function executeClockModule(){
 
     const setCurrentTime = () => {
         const {hours, minutes, seconds} = getCurrentTime();
-        hoursElement.innerHTML = hours;
-        minutesElement.innerHTML = minutes;
-        secondsElement.innerHTML = seconds;
+        hoursElement.innerHTML = hours<10?`0${hours}`:hours;
+        minutesElement.innerHTML = minutes<10?`0${minutes}`:minutes;
+        secondsElement.innerHTML = seconds<10?`0${seconds}`:seconds;
     }
 
     setInterval(setCurrentTime, 1000);
@@ -58,6 +60,7 @@ function executeStopwatchModule(){
     const swHours = document.querySelector('.sw_values-hours');
     const swMinutes = document.querySelector('.sw_values-minutes');
     const swSeconds = document.querySelector('.sw_values-seconds');
+    const swMilseconds = document.querySelector('.sw_values-milseconds');
 
     //control buttons
     const startBtn = document.querySelector('.sw-start');
@@ -69,32 +72,47 @@ function executeStopwatchModule(){
     let stopwatchTime = {
         h: 0,
         m: 0,
-        s: 0
+        s: 0,
+        ms: 0
     }
 
     let intID;
     startBtn.addEventListener('click', ()=>{
         if(!stopwatchStarted){
             stopwatchStarted = true;
-            intID = setInterval(startStopwatch,1000);
+            intID = setInterval(startStopwatch,100);
         }
     });
 
     const startStopwatch = () => {
-            stopwatchTime.s+=1;
-            if(stopwatchTime.s%60==0){
-                stopwatchTime.m+=1;
-                stopwatchTime.s=0;
-                if(stopwatchTime.m%60==0){
-                    stopwatchTime.h+=1;
-                    stopwatchTime.m=0;
+            // stopwatchTime.s+=1;
+            // if(stopwatchTime.s%60==0){
+            //     stopwatchTime.m+=1;
+            //     stopwatchTime.s=0;
+            //     if(stopwatchTime.m%60==0){
+            //         stopwatchTime.h+=1;
+            //         stopwatchTime.m=0;
+            //     }
+            // }
+            stopwatchTime.ms+=100;
+            if(stopwatchTime.ms%1000==0){
+                stopwatchTime.s+=1;
+                stopwatchTime.ms=0;
+                if(stopwatchTime.s%60==0){
+                    stopwatchTime.m+=1;
+                    stopwatchTime.s=0;
+                    if(stopwatchTime.m%60==0){
+                        stopwatchTime.h+=1;
+                        stopwatchTime.m=0;
+                    }
                 }
             }
 
             //setting the time on DOM
-            swHours.innerHTML = stopwatchTime.h;
-            swMinutes.innerHTML = stopwatchTime.m;
-            swSeconds.innerHTML = stopwatchTime.s;
+            swHours.innerHTML = stopwatchTime.h<10?`0${stopwatchTime.h}`:stopwatchTime.h;
+            swMinutes.innerHTML = stopwatchTime.m<10?`0${stopwatchTime.m}`:stopwatchTime.m;
+            swSeconds.innerHTML = stopwatchTime.s<10?`0${stopwatchTime.s}`:stopwatchTime.s;
+            swMilseconds.innerHTML = `0${stopwatchTime.ms/100}`;
     }
 
     pauseBtn.addEventListener('click', ()=>{
@@ -108,9 +126,10 @@ function executeStopwatchModule(){
         stopwatchTime.h=0;
         stopwatchTime.m=0;
         stopwatchTime.s=0;
-        swHours.innerHTML = stopwatchTime.h;
-        swMinutes.innerHTML = stopwatchTime.m;
-        swSeconds.innerHTML = stopwatchTime.s;
+        swHours.innerHTML = '00';
+        swMinutes.innerHTML = '00';
+        swSeconds.innerHTML = '00';
+        swMilseconds.innerHTML = '00';
     })
 }
 
@@ -123,7 +142,7 @@ function executeTimerModule(){
     const tHours = document.querySelector('.input-hours');
     const tMinutes = document.querySelector('.input-minutes');
     const tSeconds = document.querySelector('.input-seconds');
-
+    tSeconds.focus();
     //buttons
     const timerStartBtn = document.querySelector('.t-start');
     const timerStopBtn = document.querySelector('.t-stop');
@@ -164,9 +183,9 @@ function executeTimerModule(){
             }
         }
             //setting the time on DOM
-            tHours.value = timerTime.h;
-            tMinutes.value = timerTime.m;
-            tSeconds.value = timerTime.s;
+            tHours.value = timerTime.h<10?`0${timerTime.h}`:timerTime.h;
+            tMinutes.value = timerTime.m<10?`0${timerTime.m}`:timerTime.m;
+            tSeconds.value = timerTime.s<10?`0${timerTime.s}`:timerTime.s;
 
     }
 
@@ -174,9 +193,9 @@ function executeTimerModule(){
     let timerID;
 
     timerStartBtn.addEventListener('click', ()=>{
-        timerTime.h = tHours.value;
-        timerTime.m = tMinutes.value;
-        timerTime.s = tSeconds.value;
+        timerTime.h = tHours.value==''?0:tHours.value;
+        timerTime.m = tMinutes.value==''?0:tMinutes.value;
+        timerTime.s = tSeconds.value==''?0:tSeconds.value;
 
         if(!timerStarted){
             timerStarted = true;
