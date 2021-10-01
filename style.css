@@ -5,8 +5,15 @@
     font-family: 'Nunito', sans-serif;
     color: white;
 }
+
+body, html {
+    overflow: hidden;
+}
 body{
     background: linear-gradient(to bottom right, #C7838D, #614173, #2d1e55);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
 }
 
 .moon{
@@ -16,16 +23,8 @@ body{
     top: 3%;
 }
 
-/* .nav{
-    width: 90%;
-    height: 10vh;
-    margin: auto;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-} */
-
 .navlist{
+    /* overflow: hidden; */
     position: absolute;
     right: 15px;
     top: 50%;
@@ -47,7 +46,11 @@ body{
 }
 
 .burger{
-    height: 20px;
+    height: 10px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: none;
 }
 
 .burger:hover{
@@ -81,6 +84,9 @@ main{
     width: 30%;
     font-size: 5rem;
 }
+.val{
+    margin-right: 45px;
+}
 
 p{
     text-align: center;
@@ -89,21 +95,20 @@ p{
 /*Stopwatch*/
 .sw-values{
     width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0.6fr;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     height: 8vh;
-    font-size: 2rem;
     font-weight: 500;
     width: 30%;
     font-size: 5rem;
 }
 
-.stopwatch, .timer{
-    justify-content: center;
-}
-
-.sw-values{
-    transform: translateY(-42%);
+.stopwatch{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 .sw_values-milseconds{
@@ -163,4 +168,123 @@ input[type=number]::-webkit-outer-spin-button{
 }
 ::-webkit-input-placeholder{
     color: white;
+}
+
+
+@media only screen and (max-width: 1024px){
+    .moon{
+        height: 10vh;
+        position: absolute;
+        left: 5%;
+        top: 3%;
+    }
+    
+    .navlist{
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        top: 120px;
+        width: 100%;
+        list-style: none;
+        color: white;
+        background: rgba(255,255,255,65%);
+
+    }
+    
+    .navlist li{
+        color: #614173;
+        text-align: center;
+        width: 100%;
+        padding: 6px 4px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .navlist li:hover{
+        cursor: pointer;
+        font-size: 24px;
+    }
+    
+    .burger{
+        height: 20px;
+        display: inline;
+    }
+    
+    .burger:hover{
+        cursor: pointer;
+    }
+
+    .labels, .values{
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        height: 8vh;
+        font-size: 2.5rem;
+        font-weight: 500;
+    }
+    .val{
+        margin: 0 15px;
+    }
+    
+    /*Stopwatch*/
+    .sw-values{
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 8vh;
+        font-weight: 500;
+        width: 80vw;
+        font-size: 2.5rem;
+    }
+    .sw-val{
+        margin: 0 10px;
+    }
+
+    .stopwatch{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .sw_values-milseconds{
+        font-size: 2rem;
+
+    }
+    .buttons-container{
+        width: 90vw;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+    .swbtn, .tbtn{
+        width: 18%;
+        font-size: 20px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: white;
+        margin: 0 4px;
+    }
+    .swbtn:active, .tbtn:active{
+        font-size: 24px;
+    }
+
+    input{
+        height: 76px;
+        width: 25vw;
+        margin: 0 4px;
+        font-size: 2.5rem;
+        padding: 6px;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+    }
+    
 }

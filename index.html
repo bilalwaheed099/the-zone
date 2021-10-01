@@ -14,36 +14,35 @@
 <body>
     <header>
         <nav class="nav">
-            <!-- <ul class="navlist">
-                <li class="nav-clock">Clock</li>
-                <li class="nav-stopwatch">Stopwatch</li>
-                <li class="nav-timer">Timer</li>
-            </ul> -->
-            <!-- <img class="burger" src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png"/> -->
-            <!-- <img class="burger" src="./img/burger.png"/> -->
-        </nav>
-        <main>
-            <img class="moon" src="./img/moon.png" alt="">
             <ul class="navlist">
                 <li class="nav-clock active">Clock</li>
                 <li class="nav-stopwatch">Stopwatch</li>
                 <li class="nav-timer">Timer</li>
             </ul>
+            <img class="burger" src="./img/burger.png"/>
+        </nav>
+        <main>
+            <img class="moon" src="./img/moon.png" alt="">
+            <!-- <ul class="navlist">
+                <li class="nav-clock active">Clock</li>
+                <li class="nav-stopwatch">Stopwatch</li>
+                <li class="nav-timer">Timer</li>
+            </ul> -->
 
             <section class="clock current-time">
                 <div class="values">
-                    <p class="values_hours"></p>
-                    <p class="values_minutes"></p>
-                    <p class="values_seconds"></p>
+                    <span class="values_hours val"></span>
+                    <span class="values_minutes val"></span>
+                    <span class="values_seconds val"></span>
                 </div>
             </section>
 
             <section class="clock stopwatch hidden">
-                <div class="values sw-values">
-                    <p class="sw_values-hours values-hours">00</p>
-                    <p class="sw_values-minutes values-minutes">00</p>
-                    <p class="sw_values-seconds values-seconds">00</p>
-                    <p class="sw_values-milseconds values-milseconds">00</p>
+                <div class="sw-values">
+                    <span class="sw_values-hours values-hours sw-val">00</span>
+                    <span class="sw_values-minutes values-minutes sw-val">00</span>
+                    <span class="sw_values-seconds values-seconds sw-val">00</span>
+                    <span class="sw_values-milseconds values-milseconds">00</span>
                 </div>
                 <div class="buttons-container">
                     <button class="swbtn sw-start"><i class="fa fa-play" aria-hidden="true"></i></button>

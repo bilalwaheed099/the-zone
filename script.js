@@ -1,13 +1,21 @@
 window.onload = executeClockModule;
-
-// const burger = document.querySelector('.burger');
-// burger.addEventListener('click', ()=> {
-//     navList.classList.toggle("hidden");
-// })
 const navList = document.querySelector('.navlist');
 const navClock = document.querySelector('.nav-clock');
 const navStopwatch = document.querySelector('.nav-stopwatch');
 const navTimer = document.querySelector('.nav-timer');
+
+if(window.screen.width < 1024){
+    navList.classList.add("hidden");
+}
+
+const burger = document.querySelector('.burger');
+burger.addEventListener('click', ()=> {
+    navList.classList.toggle("hidden");
+})
+
+
+
+
 //adding listeners for nav items
 navList.addEventListener('click', e=>{
     const targetClass = e.target.className.split(' ')[0];
@@ -21,6 +29,9 @@ navList.addEventListener('click', e=>{
         case "nav-timer":
             executeTimerModule();
             break;        
+    }
+    if(window.screen.width < 1024){
+        navList.classList.toggle("hidden");
     }
 })
 
