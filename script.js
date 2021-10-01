@@ -4,8 +4,11 @@ const navClock = document.querySelector('.nav-clock');
 const navStopwatch = document.querySelector('.nav-stopwatch');
 const navTimer = document.querySelector('.nav-timer');
 
-if(window.screen.width < 1024){
+
+
+if(document.body.clientWidth < 1024){
     navList.classList.add("hidden");
+    hideFlag = true;
 }
 
 const burger = document.querySelector('.burger');
@@ -30,7 +33,7 @@ navList.addEventListener('click', e=>{
             executeTimerModule();
             break;        
     }
-    if(window.screen.width < 1024){
+    if(document.body.clientWidth < 1024){
         navList.classList.toggle("hidden");
     }
 })
